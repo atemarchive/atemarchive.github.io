@@ -50,6 +50,8 @@
       display: none;
       text-align: center;
       padding-top: 120px;
+      padding-left: 20px;
+      padding-right: 20px;
     }
 
     .tab-content.active {
@@ -96,6 +98,58 @@
       text-decoration: none;
       display: inline-block;
     }
+
+    /* Releases grid */
+    .releases-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      max-width: 1000px;
+      margin: 0 auto 60px;
+      padding: 0 20px;
+    }
+
+    .release-item {
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.7);
+      transition: transform 0.3s ease;
+    }
+
+    .release-item:hover {
+      transform: scale(1.05);
+    }
+
+    .release-image {
+      width: 100%;
+      border-radius: 8px;
+      object-fit: cover;
+      margin-bottom: 15px;
+      box-shadow: 0 0 8px #1db954;
+    }
+
+    .release-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 0 0 8px;
+      color: #1db954;
+    }
+
+    .release-artist {
+      font-size: 16px;
+      margin: 0 0 12px;
+      font-style: italic;
+      color: #ddd;
+    }
+
+    audio {
+      width: 100%;
+      outline: none;
+      border-radius: 6px;
+      background: #222;
+      box-shadow: 0 0 8px #1db954;
+    }
   </style>
 </head>
 <body>
@@ -139,7 +193,26 @@
   <!-- Releases Tab -->
   <div id="releases" class="tab-content">
     <h1>Releases</h1>
-    <p>Coming soon...</p>
+    <div class="releases-grid">
+      <div class="release-item">
+        <img src="https://i.imgur.com/GaJUXjJ.jpeg" alt="Atem - Atem" class="release-image" />
+        <p class="release-title">Atem</p>
+        <p class="release-artist">atem</p>
+        <audio controls preload="none" src="https://www.dropbox.com/scl/fi/atuylrmnm62vetl25js8q/1.a-t-e-m-atem.mp3?raw=1"></audio>
+      </div>
+      <div class="release-item">
+        <img src="https://i.imgur.com/om40ULJ.jpeg" alt="Lost in the Rain - W.W" class="release-image" />
+        <p class="release-title">W.W</p>
+        <p class="release-artist">lost in the rain</p>
+        <audio controls preload="none" src="https://www.dropbox.com/scl/fi/c82fmutxbjxw070577uvb/1.lost-in-the-rain-w.w.mp3?raw=1"></audio>
+      </div>
+      <div class="release-item">
+        <img src="https://i.imgur.com/7Rn428S.jpeg" alt="Lost in the Rain - Ancient Spirits" class="release-image" />
+        <p class="release-title">Ancient Spirits</p>
+        <p class="release-artist">lost in the rain</p>
+        <audio controls preload="none" src="https://www.dropbox.com/scl/fi/106o95ojvzt9wzwzzl6nk/1.lost-in-the-rain-ancient-spirits.mp3?raw=1"></audio>
+      </div>
+    </div>
   </div>
 
   <!-- Radio Tab -->
