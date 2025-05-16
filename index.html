@@ -105,27 +105,27 @@
       animation: burnPulse 1.2s infinite;
     }
 
-    /* Icon and image sizing */
+    /* Make all icons and images the same size and aligned */
+    .linktree-links i,
+    .linktree-links img,
+    .linktree-links svg {
+      width: 30px;
+      height: 30px;
+      flex-shrink: 0;
+      line-height: 30px;
+      vertical-align: middle;
+      display: inline-block;
+    }
+
     .linktree-links i {
       font-size: 30px;
       line-height: 30px;
-      flex-shrink: 0;
-    }
-
-    /* Instagram icon fix: make it slightly bigger */
-    .linktree-links i.fa-instagram {
-      font-size: 34px;
-      line-height: 30px;
-      transform: translateY(1px);
     }
 
     .linktree-links img {
-      width: 30px;
-      height: 30px;
       object-fit: contain;
       border-radius: 8px;
       filter: invert(100%) brightness(150%) contrast(200%);
-      flex-shrink: 0;
     }
 
     .releases-grid {
@@ -195,8 +195,8 @@
   <!-- Navigation Tabs -->
   <nav>
     <a class="tab-link active" data-tab="home">Home</a>
-    <a class="tab-link" data-tab="releases">Releases</a>
-    <a class="tab-link" data-tab="radio">Radio</a>
+    <a class="tab-link" data-tab="music">Music</a>
+    <a class="tab-link" data-tab="video">Video</a>
   </nav>
 
   <!-- Home Tab -->
@@ -223,18 +223,10 @@
     </div>
   </div>
 
-  <!-- Releases Tab -->
-  <div id="releases" class="tab-content">
-    <h1>Releases</h1>
+  <!-- Music Tab -->
+  <div id="music" class="tab-content">
+    <h1>Music</h1>
     <div class="releases-grid">
-
-      <!-- Atem Release with audio -->
-      <div class="release-item">
-        <img src="https://i.imgur.com/GaJUXjJ.jpeg" alt="Atem - Atem" class="release-image" />
-        <p class="release-title">Atem</p>
-        <p class="release-artist">atem</p>
-        <audio controls src="https://www.dropbox.com/scl/fi/atuylrmnm62vetl25js8q/1.a-t-e-m-atem.mp3?rlkey=zq6rdxxte6zchgmsfwctnpvcf&st=kf95kuob&dl=1"></audio>
-      </div>
 
       <!-- Ancient Spirits Release with audio -->
       <div class="release-item">
@@ -252,12 +244,20 @@
         <audio controls src="https://www.dropbox.com/scl/fi/c82fmutxbjxw070577uvb/1.lost-in-the-rain-w.w.mp3?rlkey=y8ratgcjwqt2y7jpmgzuro8wp&st=1tk6021i&dl=1"></audio>
       </div>
 
+      <!-- Atem Release with audio -->
+      <div class="release-item">
+        <img src="https://i.imgur.com/GaJUXjJ.jpeg" alt="Atem - Atem" class="release-image" />
+        <p class="release-title">Atem</p>
+        <p class="release-artist">atem</p>
+        <audio controls src="https://www.dropbox.com/scl/fi/atuylrmnm62vetl25js8q/1.a-t-e-m-atem.mp3?rlkey=zq6rdxxte6zchgmsfwctnpvcf&st=kf95kuob&dl=1"></audio>
+      </div>
+
     </div>
   </div>
 
-  <!-- Radio Tab -->
-  <div id="radio" class="tab-content">
-    <h1>Radio</h1>
+  <!-- Video Tab -->
+  <div id="video" class="tab-content">
+    <h1>Video</h1>
     <p>Coming soon...</p>
   </div>
 
