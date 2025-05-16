@@ -12,8 +12,45 @@
       background-color: black;
       color: white;
       font-family: Arial, sans-serif;
+      margin: 0;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #111;
+      padding: 15px 0;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      border-bottom: 1px solid #333;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 5px 10px;
+      transition: color 0.3s, border-bottom 0.3s;
+      cursor: pointer;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #1db954;
+      border-bottom: 2px solid #1db954;
+    }
+
+    .tab-content {
+      display: none;
       text-align: center;
-      padding-top: 100px;
+      padding-top: 120px;
+    }
+
+    .tab-content.active {
+      display: block;
     }
 
     h1 {
@@ -37,7 +74,7 @@
 
     .social-icons a:hover {
       transform: scale(1.2);
-      color: #1db954; /* Spotify green for hover */
+      color: #1db954;
     }
 
     .social-icons img {
@@ -49,35 +86,82 @@
       transition: transform 0.3s;
       filter: invert(100%) brightness(150%) contrast(200%);
     }
+
+    .back-link {
+      margin-top: 20px;
+      color: #1db954;
+      text-decoration: none;
+      display: inline-block;
+    }
   </style>
 </head>
 <body>
-  <h1>Atem Archive</h1>
 
-  <div class="social-icons">
-    <a href="https://www.instagram.com/atemarchive" target="_blank" aria-label="Instagram">
-      <i class="fab fa-instagram"></i>
-    </a>
-    <a href="https://www.youtube.com/@atemarchive" target="_blank" aria-label="YouTube">
-      <i class="fab fa-youtube"></i>
-    </a>
-    <a href="https://elasticstage.com/atemarchive" target="_blank" aria-label="Elasticstage">
-      <img
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGX2JYVzG4YOcLsV_alNZS4FWLzfAauldYcA&s"
-        alt="Elasticstage"
-      />
-    </a>
-    <a href="https://open.spotify.com/artist/7uX8o51wynEbVf8EnewF5c?si=GLZYuFNmS9qYY4eF7UO8EA" target="_blank" aria-label="Spotify">
-      <i class="fab fa-spotify"></i>
-    </a>
+  <!-- Navigation Tabs -->
+  <nav>
+    <a class="tab-link active" data-tab="home">Home</a>
+    <a class="tab-link" data-tab="releases">Releases</a>
+    <a class="tab-link" data-tab="radio">Radio</a>
+  </nav>
 
-    <a href="https://atemarchive.bandcamp.com" target="_blank" aria-label="Bandcamp" style="display:inline-block; width:40px; height:40px; margin: 0 15px; vertical-align: middle;">
-      <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" style="width: 40px; height: 40px;">
-        <circle cx="12" cy="12" r="12"/>
-        <path fill="black" d="M10 16V8h4v8h-4z"/>
-      </svg>
-    </a>
+  <!-- Home Tab -->
+  <div id="home" class="tab-content active">
+    <h1>Atem Archive</h1>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/atemarchive" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.youtube.com/@atemarchive" target="_blank" aria-label="YouTube">
+        <i class="fab fa-youtube"></i>
+      </a>
+      <a href="https://elasticstage.com/atemarchive" target="_blank" aria-label="Elasticstage">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGX2JYVzG4YOcLsV_alNZS4FWLzfAauldYcA&s"
+          alt="Elasticstage"
+        />
+      </a>
+      <a href="https://open.spotify.com/artist/7uX8o51wynEbVf8EnewF5c?si=GLZYuFNmS9qYY4eF7UO8EA" target="_blank" aria-label="Spotify">
+        <i class="fab fa-spotify"></i>
+      </a>
+      <a href="https://atemarchive.bandcamp.com" target="_blank" aria-label="Bandcamp" style="display:inline-block; width:40px; height:40px; margin: 0 15px; vertical-align: middle;">
+        <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" style="width: 40px; height: 40px;" role="img" aria-label="Bandcamp">
+          <title>Bandcamp</title>
+          <circle cx="12" cy="12" r="12"/>
+          <path fill="black" d="M10 16V8h4v8h-4z"/>
+        </svg>
+      </a>
+    </div>
   </div>
+
+  <!-- Releases Tab -->
+  <div id="releases" class="tab-content">
+    <h1>Releases</h1>
+    <p>Coming soon...</p>
+  </div>
+
+  <!-- Radio Tab -->
+  <div id="radio" class="tab-content">
+    <h1>Radio</h1>
+    <p>Coming soon...</p>
+  </div>
+
+  <!-- JavaScript for Tab Switching -->
+  <script>
+    const links = document.querySelectorAll('.tab-link');
+    const tabs = document.querySelectorAll('.tab-content');
+
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        // Remove active classes
+        links.forEach(l => l.classList.remove('active'));
+        tabs.forEach(t => t.classList.remove('active'));
+
+        // Activate selected
+        link.classList.add('active');
+        document.getElementById(link.dataset.tab).classList.add('active');
+      });
+    });
+  </script>
+
 </body>
 </html>
-
