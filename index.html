@@ -44,8 +44,9 @@
       height: 40px;
       vertical-align: middle;
       border-radius: 8px;
-      object-fit: cover;
+      object-fit: contain;
       transition: transform 0.3s;
+      filter: invert(100%) brightness(150%) contrast(200%);
     }
   </style>
 </head>
@@ -63,14 +64,16 @@
       <img
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGX2JYVzG4YOcLsV_alNZS4FWLzfAauldYcA&s"
         alt="Elasticstage"
-        style="filter: invert(100%) brightness(150%) contrast(200%)"
       />
     </a>
     <a href="https://open.spotify.com/artist/7uX8o51wynEbVf8EnewF5c?si=GLZYuFNmS9qYY4eF7UO8EA" target="_blank" aria-label="Spotify">
       <i class="fab fa-spotify"></i>
     </a>
     <a href="https://atemarchive.bandcamp.com" target="_blank" aria-label="Bandcamp">
-      <i class="fas fa-music"></i>
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Bandcamp_logo.svg/1024px-Bandcamp_logo.svg.png"
+        alt="Bandcamp"
+      />
     </a>
   </div>
 </body>
