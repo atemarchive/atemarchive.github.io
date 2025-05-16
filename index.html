@@ -3,10 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Atem Archive</title>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     body {
       background-image: url('https://i.imgur.com/4etPCGL.jpeg');
@@ -63,40 +60,48 @@
       margin-bottom: 40px;
     }
 
-    .social-icons {
-      margin-top: 30px;
+    /* Linktree-style layout */
+    .linktree-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      margin-top: 40px;
     }
 
-    .social-icons a {
+    .linktree-links a {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      text-decoration: none;
       color: white;
-      font-size: 40px;
-      margin: 0 15px;
-      text-decoration: none;
-      display: inline-block;
-      transition: transform 0.3s, color 0.3s;
-      vertical-align: middle;
-    }
-
-    .social-icons a:hover {
-      transform: scale(1.2);
-      color: #1db954;
-    }
-
-    .social-icons img {
-      width: 40px;
-      height: 40px;
-      vertical-align: middle;
+      font-size: 20px;
+      transition: color 0.3s ease, transform 0.3s ease;
+      padding: 10px 20px;
       border-radius: 8px;
-      object-fit: cover;
-      transition: transform 0.3s;
-      filter: invert(100%) brightness(150%) contrast(200%);
+      background-color: rgba(0, 0, 0, 0.4);
+      width: 280px;
+      justify-content: flex-start;
     }
 
-    .back-link {
-      margin-top: 20px;
+    .linktree-links a:hover {
       color: #1db954;
-      text-decoration: none;
-      display: inline-block;
+      transform: scale(1.02);
+    }
+
+    .linktree-links i,
+    .linktree-links img,
+    .linktree-links svg {
+      width: 30px;
+      height: 30px;
+      font-size: 30px;
+      flex-shrink: 0;
+    }
+
+    .linktree-links img {
+      object-fit: cover;
+      border-radius: 8px;
+      filter: invert(100%) brightness(150%) contrast(200%);
     }
 
     .releases-grid {
@@ -141,12 +146,6 @@
       font-style: italic;
       color: #ddd;
     }
-
-    audio {
-      width: 100%;
-      margin-top: 10px;
-    }
-
   </style>
 </head>
 <body>
@@ -161,19 +160,29 @@
   <!-- Home Tab -->
   <div id="home" class="tab-content active">
     <h1>Atem Archive</h1>
-    <div class="social-icons">
-      <a href="https://www.instagram.com/atemarchive" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.youtube.com/@atemarchive" target="_blank"><i class="fab fa-youtube"></i></a>
+    <div class="linktree-links">
+      <a href="https://www.instagram.com/atemarchive" target="_blank">
+        <i class="fab fa-instagram"></i>
+        <span>Instagram</span>
+      </a>
+      <a href="https://www.youtube.com/@atemarchive" target="_blank">
+        <i class="fab fa-youtube"></i>
+        <span>YouTube</span>
+      </a>
       <a href="https://elasticstage.com/atemarchive" target="_blank">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGX2JYVzG4YOcLsV_alNZS4FWLzfAauldYcA&s" alt="Elasticstage" />
+        <span>Elasticstage</span>
       </a>
-      <a href="https://open.spotify.com/artist/7uX8o51wynEbVf8EnewF5c?si=GLZYuFNmS9qYY4eF7UO8EA" target="_blank"><i class="fab fa-spotify"></i></a>
-      <a href="https://atemarchive.bandcamp.com" target="_blank" style="display:inline-block; width:40px; height:40px; margin: 0 15px; vertical-align: middle;">
-        <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" style="width: 40px; height: 40px;" role="img" aria-label="Bandcamp">
-          <title>Bandcamp</title>
+      <a href="https://open.spotify.com/artist/7uX8o51wynEbVf8EnewF5c?si=GLZYuFNmS9qYY4eF7UO8EA" target="_blank">
+        <i class="fab fa-spotify"></i>
+        <span>Spotify</span>
+      </a>
+      <a href="https://atemarchive.bandcamp.com" target="_blank">
+        <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
           <circle cx="12" cy="12" r="12"/>
           <path fill="black" d="M10 16V8h4v8h-4z"/>
         </svg>
+        <span>Bandcamp</span>
       </a>
     </div>
   </div>
@@ -182,31 +191,21 @@
   <div id="releases" class="tab-content">
     <h1>Releases</h1>
     <div class="releases-grid">
-
-      <!-- Reversed order: Ancient Spirits -->
       <div class="release-item">
         <img src="https://i.imgur.com/7Rn428S.jpeg" alt="Lost in the Rain - Ancient Spirits" class="release-image" />
         <p class="release-title">Ancient Spirits</p>
         <p class="release-artist">lost in the rain</p>
-        <audio controls src="https://www.dropbox.com/scl/fi/106o95ojvzt9wzwzzl6nk/1.lost-in-the-rain-ancient-spirits.mp3?rlkey=ghnadu2hvhcv25mhi1a40auy6&st=ogsl6a7u&dl=1"></audio>
       </div>
-
-      <!-- W.W -->
       <div class="release-item">
         <img src="https://i.imgur.com/om40ULJ.jpeg" alt="Lost in the Rain - W.W" class="release-image" />
         <p class="release-title">W.W</p>
         <p class="release-artist">lost in the rain</p>
-        <audio controls src="https://www.dropbox.com/scl/fi/c82fmutxbjxw070577uvb/1.lost-in-the-rain-w.w.mp3?rlkey=y8ratgcjwqt2y7jpmgzuro8wp&st=1tk6021i&dl=1"></audio>
       </div>
-
-      <!-- Atem -->
       <div class="release-item">
         <img src="https://i.imgur.com/GaJUXjJ.jpeg" alt="Atem - Atem" class="release-image" />
         <p class="release-title">Atem</p>
         <p class="release-artist">atem</p>
-        <audio controls src="https://www.dropbox.com/scl/fi/atuylrmnm62vetl25js8q/1.a-t-e-m-atem.mp3?rlkey=zq6rdxxte6zchgmsfwctnpvcf&st=kf95kuob&dl=1"></audio>
       </div>
-
     </div>
   </div>
 
@@ -216,11 +215,10 @@
     <p>Coming soon...</p>
   </div>
 
-  <!-- JavaScript for Tabs and Audio Control -->
+  <!-- JavaScript for Tab Switching -->
   <script>
     const links = document.querySelectorAll('.tab-link');
     const tabs = document.querySelectorAll('.tab-content');
-    const audios = document.querySelectorAll('audio');
 
     links.forEach(link => {
       link.addEventListener('click', () => {
@@ -229,16 +227,6 @@
 
         link.classList.add('active');
         document.getElementById(link.dataset.tab).classList.add('active');
-      });
-    });
-
-    audios.forEach(audio => {
-      audio.addEventListener('play', () => {
-        audios.forEach(other => {
-          if (other !== audio) {
-            other.pause();
-          }
-        });
       });
     });
   </script>
