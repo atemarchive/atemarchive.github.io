@@ -105,18 +105,27 @@
       animation: burnPulse 1.2s infinite;
     }
 
-    .linktree-links i,
-    .linktree-links img,
-    .linktree-links svg {
-      width: 30px;
-      height: 30px;
+    /* Icon and image sizing */
+    .linktree-links i {
+      font-size: 30px;
+      line-height: 30px;
       flex-shrink: 0;
     }
 
+    /* Instagram icon fix: make it slightly bigger */
+    .linktree-links i.fa-instagram {
+      font-size: 34px;
+      line-height: 30px;
+      transform: translateY(1px);
+    }
+
     .linktree-links img {
+      width: 30px;
+      height: 30px;
       object-fit: contain;
       border-radius: 8px;
       filter: invert(100%) brightness(150%) contrast(200%);
+      flex-shrink: 0;
     }
 
     .releases-grid {
