@@ -99,7 +99,6 @@
       display: inline-block;
     }
 
-    /* Releases grid */
     .releases-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -138,17 +137,16 @@
 
     .release-artist {
       font-size: 16px;
-      margin: 0 0 12px;
+      margin: 0;
       font-style: italic;
       color: #ddd;
+      margin-bottom: 10px;
     }
 
     audio {
       width: 100%;
-      outline: none;
+      margin-top: 10px;
       border-radius: 6px;
-      background: #222;
-      box-shadow: 0 0 8px #1db954;
     }
   </style>
 </head>
@@ -165,22 +163,13 @@
   <div id="home" class="tab-content active">
     <h1>Atem Archive</h1>
     <div class="social-icons">
-      <a href="https://www.instagram.com/atemarchive" target="_blank" aria-label="Instagram">
-        <i class="fab fa-instagram"></i>
+      <a href="https://www.instagram.com/atemarchive" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@atemarchive" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://elasticstage.com/atemarchive" target="_blank">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGX2JYVzG4YOcLsV_alNZS4FWLzfAauldYcA&s" alt="Elasticstage" />
       </a>
-      <a href="https://www.youtube.com/@atemarchive" target="_blank" aria-label="YouTube">
-        <i class="fab fa-youtube"></i>
-      </a>
-      <a href="https://elasticstage.com/atemarchive" target="_blank" aria-label="Elasticstage">
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGX2JYVzG4YOcLsV_alNZS4FWLzfAauldYcA&s"
-          alt="Elasticstage"
-        />
-      </a>
-      <a href="https://open.spotify.com/artist/7uX8o51wynEbVf8EnewF5c?si=GLZYuFNmS9qYY4eF7UO8EA" target="_blank" aria-label="Spotify">
-        <i class="fab fa-spotify"></i>
-      </a>
-      <a href="https://atemarchive.bandcamp.com" target="_blank" aria-label="Bandcamp" style="display:inline-block; width:40px; height:40px; margin: 0 15px; vertical-align: middle;">
+      <a href="https://open.spotify.com/artist/7uX8o51wynEbVf8EnewF5c?si=GLZYuFNmS9qYY4eF7UO8EA" target="_blank"><i class="fab fa-spotify"></i></a>
+      <a href="https://atemarchive.bandcamp.com" target="_blank" style="display:inline-block; width:40px; height:40px; margin: 0 15px; vertical-align: middle;">
         <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" style="width: 40px; height: 40px;" role="img" aria-label="Bandcamp">
           <title>Bandcamp</title>
           <circle cx="12" cy="12" r="12"/>
@@ -194,24 +183,28 @@
   <div id="releases" class="tab-content">
     <h1>Releases</h1>
     <div class="releases-grid">
+
       <div class="release-item">
         <img src="https://i.imgur.com/GaJUXjJ.jpeg" alt="Atem - Atem" class="release-image" />
         <p class="release-title">Atem</p>
         <p class="release-artist">atem</p>
-        <audio controls preload="none" src="https://www.dropbox.com/scl/fi/atuylrmnm62vetl25js8q/1.a-t-e-m-atem.mp3?raw=1"></audio>
+        <audio controls src="https://www.dropbox.com/scl/fi/atuylrmnm62vetl25js8q/1.a-t-e-m-atem.mp3?rlkey=zq6rdxxte6zchgmsfwctnpvcf&st=kf95kuob&dl=1"></audio>
       </div>
+
       <div class="release-item">
         <img src="https://i.imgur.com/om40ULJ.jpeg" alt="Lost in the Rain - W.W" class="release-image" />
         <p class="release-title">W.W</p>
         <p class="release-artist">lost in the rain</p>
-        <audio controls preload="none" src="https://www.dropbox.com/scl/fi/c82fmutxbjxw070577uvb/1.lost-in-the-rain-w.w.mp3?raw=1"></audio>
+        <audio controls src="https://www.dropbox.com/scl/fi/c82fmutxbjxw070577uvb/1.lost-in-the-rain-w.w.mp3?rlkey=y8ratgcjwqt2y7jpmgzuro8wp&st=1tk6021i&dl=1"></audio>
       </div>
+
       <div class="release-item">
         <img src="https://i.imgur.com/7Rn428S.jpeg" alt="Lost in the Rain - Ancient Spirits" class="release-image" />
         <p class="release-title">Ancient Spirits</p>
         <p class="release-artist">lost in the rain</p>
-        <audio controls preload="none" src="https://www.dropbox.com/scl/fi/106o95ojvzt9wzwzzl6nk/1.lost-in-the-rain-ancient-spirits.mp3?raw=1"></audio>
+        <audio controls src="https://www.dropbox.com/scl/fi/106o95ojvzt9wzwzzl6nk/1.lost-in-the-rain-ancient-spirits.mp3?rlkey=ghnadu2hvhcv25mhi1a40auy6&st=ogsl6a7u&dl=1"></audio>
       </div>
+
     </div>
   </div>
 
@@ -221,20 +214,29 @@
     <p>Coming soon...</p>
   </div>
 
-  <!-- JavaScript for Tab Switching -->
+  <!-- JavaScript for Tab Switching and Audio Control -->
   <script>
-    const links = document.querySelectorAll('.tab-link');
-    const tabs = document.querySelectorAll('.tab-content');
+    // Tab Switching
+    const tabs = document.querySelectorAll('.tab-link');
+    const contents = document.querySelectorAll('.tab-content');
 
-    links.forEach(link => {
-      link.addEventListener('click', () => {
-        // Remove active classes
-        links.forEach(l => l.classList.remove('active'));
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
         tabs.forEach(t => t.classList.remove('active'));
+        contents.forEach(c => c.classList.remove('active'));
 
-        // Activate selected
-        link.classList.add('active');
-        document.getElementById(link.dataset.tab).classList.add('active');
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
+    });
+
+    // Pause other audios when one plays
+    const audios = document.querySelectorAll('audio');
+    audios.forEach(audio => {
+      audio.addEventListener('play', () => {
+        audios.forEach(other => {
+          if (other !== audio) other.pause();
+        });
       });
     });
   </script>
