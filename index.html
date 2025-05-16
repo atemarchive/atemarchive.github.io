@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Atem Archive</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
   <style>
     body {
       background-color: black;
@@ -27,22 +30,22 @@
       font-size: 40px;
       margin: 0 15px;
       text-decoration: none;
-      transition: color 0.3s;
+      display: inline-block;
+      transition: transform 0.3s, color 0.3s;
     }
 
     .social-icons a:hover {
-      color: #1db954; /* hover color (Spotify green, or can adjust) */
+      transform: scale(1.2);
+      color: #1db954; /* Spotify green for hover */
     }
 
     .social-icons img {
-      height: 36px;
+      width: 40px;
+      height: 40px;
       vertical-align: middle;
-      border-radius: 4px;
+      border-radius: 8px;
+      object-fit: cover;
       transition: transform 0.3s;
-    }
-
-    .social-icons img:hover {
-      transform: scale(1.1);
     }
   </style>
 </head>
@@ -50,18 +53,33 @@
   <h1>Atem Archive</h1>
 
   <div class="social-icons">
-    <a href="https://www.instagram.com/atemarchive" target="_blank" aria-label="Instagram">
-      <i class="fab fa-instagram"></i>
-    </a>
-    <a href="https://www.youtube.com/@atemarchive" target="_blank" aria-label="YouTube">
-      <i class="fab fa-youtube"></i>
-    </a>
-    <a href="https://elasticstage.com/atemarchive" target="_blank" aria-label="Elasticstage">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGX2JYVzG4YOcLsV_alNZS4FWLzfAauldYcA&s" alt="Elasticstage Logo">
-    </a>
-    <a href="https://open.spotify.com/artist/7uX8o51wynEbVf8EnewF5c?si=GLZYuFNmS9qYY4eF7UO8EA" target="_blank" aria-label="Spotify">
-      <i class="fab fa-spotify"></i>
-    </a>
+    <a
+      href="https://www.instagram.com/atemarchive"
+      target="_blank"
+      aria-label="Instagram"
+      ><i class="fab fa-instagram"></i
+    ></a>
+    <a
+      href="https://www.youtube.com/@atemarchive"
+      target="_blank"
+      aria-label="YouTube"
+      ><i class="fab fa-youtube"></i
+    ></a>
+    <a
+      href="https://elasticstage.com/atemarchive"
+      target="_blank"
+      aria-label="Elasticstage"
+      ><img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGX2JYVzG4YOcLsV_alNZS4FWLzfAauldYcA&s"
+        alt="Elasticstage"
+        style="filter: invert(100%) brightness(150%) contrast(200%)"
+    /></a>
+    <a
+      href="https://open.spotify.com/artist/7uX8o51wynEbVf8EnewF5c?si=GLZYuFNmS9qYY4eF7U8EA"
+      target="_blank"
+      aria-label="Spotify"
+      ><i class="fab fa-spotify"></i
+    ></a>
   </div>
 </body>
 </html>
