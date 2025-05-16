@@ -1,191 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Atem Archive Label</title>
-
-<!-- Font Awesome for icons -->
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-  integrity="sha512-p1CmXvy2lf7XXYdq6Gv6RnB/If2q+e7iQz66p6E+4QmiN+j+QDd0uJq5t8G0rRzrHQ8GQ0tg3BSrlYKaNPKwwQ=="
-  crossorigin="anonymous"
-  referrerpolicy="no-referrer"
-/>
-
-<style>
-  body {
-    background-color: black;
-    color: white;
-    font-family: Arial, sans-serif;
-    margin: 0; padding: 0;
-  }
-
-  header {
-    padding: 20px;
-    text-align: center;
-    font-size: 36px;
-    font-weight: bold;
-  }
-
-  nav {
-    display: flex;
-    justify-content: center;
-    background-color: #111;
-  }
-
-  nav button {
-    background: none;
-    border: none;
-    color: white;
-    padding: 15px 30px;
-    font-size: 18px;
-    cursor: pointer;
-    border-bottom: 3px solid transparent;
-    transition: border-color 0.3s;
-  }
-
-  nav button.active,
-  nav button:hover {
-    border-bottom: 3px solid #1DB954;
-  }
-
-  section {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 0 20px;
-    display: none;
-  }
-
-  section.active {
-    display: block;
-  }
-
-  .releases-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
-  }
-
-  .release-item {
-    width: 180px;
-    text-align: center;
-  }
-
-  .release-item img {
-    width: 100%;
-    border-radius: 8px;
-  }
-
-  .release-item h3 {
-    margin: 15px 0 10px;
-  }
-
-  .release-item a {
-    color: #1DB954;
-    text-decoration: none;
-  }
-
-  .release-item a:hover {
-    text-decoration: underline;
-  }
-
-  /* Social links in home */
-  #social-links {
-    margin-top: 30px;
-    text-align: center;
-    font-size: 48px;
-  }
-
-  #social-links a {
-    color: white;
-    margin: 0 25px;
-    transition: color 0.3s;
-  }
-
-  #social-links a:hover {
-    color: #1DB954;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Atem Archive</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+    }
+    header {
+      padding: 20px;
+      text-align: center;
+      background-color: #111;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #222;
+    }
+    nav a {
+      color: #1db954;
+      padding: 15px 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      background-color: #1db954;
+      color: #000;
+    }
+    main {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    .bandcamp-album {
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    h1, h2, h3 {
+      margin: 10px 0;
+    }
+  </style>
 </head>
 <body>
 
-<header>Atem Archive</header>
+<header>
+  <h1>Atem Archive</h1>
+</header>
 
 <nav>
-  <button class="tab-button active" data-tab="home">Home</button>
-  <button class="tab-button" data-tab="releases">Releases</button>
-  <button class="tab-button" data-tab="radio">Radio</button>
+  <a href="#home">Home</a>
+  <a href="#releases">Releases</a>
+  <a href="#radio">Radio</a>
 </nav>
 
-<section id="home" class="active">
-  <h2>Welcome to Atem Archive</h2>
-  <p>Your label page description goes here. Introduce your artists, music style, or news.</p>
+<main>
 
-  <div id="social-links">
-    <a href="https://www.instagram.com/atemarchive" target="_blank" aria-label="Instagram">
-      <i class="fab fa-instagram"></i>
-    </a>
-    <a href="https://www.youtube.com/@atemarchive" target="_blank" aria-label="YouTube">
-      <i class="fab fa-youtube"></i>
-    </a>
-    <a href="https://elasticstage.com/atemarchive" target="_blank" aria-label="Elasticstage">
-      <i class="fas fa-broadcast-tower"></i>
-    </a>
-    <a href="https://open.spotify.com/artist/7uX8o51wynEbVf8EnewF5c?si=GLZYuFNmS9qYY4eF7UO8EA" target="_blank" aria-label="Spotify">
-      <i class="fab fa-spotify"></i>
-    </a>
-    <a href="https://atemarchive.bandcamp.com" target="_blank" aria-label="Bandcamp">
-      <i class="fab fa-bandcamp"></i>
-    </a>
-  </div>
-</section>
+  <section id="home">
+    <h2>Welcome to Atem Archive</h2>
+    <p>Discover our music and follow us on social media.</p>
+    <!-- Add your social icons/links here if you want -->
+  </section>
 
-<section id="releases">
-  <h2>Releases</h2>
-  <div class="releases-grid">
-    <div class="release-item">
-      <img src="https://linktoalbumart1.jpg" alt="Album 1" />
-      <h3>Album Title 1</h3>
-      <a href="https://linktoalbum1" target="_blank">Listen / Buy</a>
+  <section id="releases">
+    <h2>Releases</h2>
+
+    <div class="bandcamp-album">
+      <h3>Atem</h3>
+      <iframe
+        style="border: 0; width: 350px; height: 470px;"
+        src="https://bandcamp.com/EmbeddedPlayer/album=2455920720/size=large/bgcol=000000/linkcol=1db954/artwork=small/transparent=true/"
+        seamless>
+      </iframe>
     </div>
-    <div class="release-item">
-      <img src="https://linktoalbumart2.jpg" alt="Album 2" />
-      <h3>Album Title 2</h3>
-      <a href="https://linktoalbum2" target="_blank">Listen / Buy</a>
+
+    <div class="bandcamp-album">
+      <h3>W W</h3>
+      <iframe
+        style="border: 0; width: 350px; height: 470px;"
+        src="https://bandcamp.com/EmbeddedPlayer/album=2711054290/size=large/bgcol=000000/linkcol=1db954/artwork=small/transparent=true/"
+        seamless>
+      </iframe>
     </div>
-  </div>
-</section>
 
-<section id="radio">
-  <h2>Radio</h2>
-  <p>Listen to our curated radio stream:</p>
-  <iframe 
-    src="https://www.radiojar.com/embed/your-stream-id" 
-    width="100%" 
-    height="150" 
-    frameborder="0" 
-    allow="autoplay; encrypted-media" 
-    allowfullscreen>
-  </iframe>
-</section>
+    <div class="bandcamp-album">
+      <h3>Ancient Spirits</h3>
+      <iframe
+        style="border: 0; width: 350px; height: 470px;"
+        src="https://bandcamp.com/EmbeddedPlayer/album=4238513645/size=large/bgcol=000000/linkcol=1db954/artwork=small/transparent=true/"
+        seamless>
+      </iframe>
+    </div>
+  </section>
 
-<script>
-  const buttons = document.querySelectorAll('.tab-button');
-  const sections = document.querySelectorAll('section');
+  <section id="radio">
+    <h2>Radio</h2>
+    <p>Coming soon...</p>
+  </section>
 
-  buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      buttons.forEach(btn => btn.classList.remove('active'));
-      sections.forEach(sec => sec.classList.remove('active'));
-
-      button.classList.add('active');
-      document.getElementById(button.dataset.tab).classList.add('active');
-    });
-  });
-</script>
+</main>
 
 </body>
 </html>
