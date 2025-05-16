@@ -19,32 +19,48 @@
     }
 
     .social-icons {
-      margin-top: 20px;
+      margin-top: 30px;
     }
 
     .social-icons a {
       color: white;
       font-size: 40px;
-      margin: 0 20px;
+      margin: 0 15px;
       text-decoration: none;
       transition: color 0.3s;
     }
 
     .social-icons a:hover {
-      color: #ff0000; /* red hover effect */
+      color: #1db954; /* hover color (Spotify green, or can adjust) */
+    }
+
+    .social-icons img {
+      height: 36px;
+      vertical-align: middle;
+      border-radius: 4px;
+      transition: transform 0.3s;
+    }
+
+    .social-icons img:hover {
+      transform: scale(1.1);
     }
   </style>
 </head>
 <body>
   <h1>Atem Archive</h1>
-  <p>Welcome to the darkness of knowledge.</p>
 
   <div class="social-icons">
-    <a href="https://instagram.com/atemarchive" target="_blank" aria-label="Instagram">
+    <a href="https://www.instagram.com/atemarchive" target="_blank" aria-label="Instagram">
       <i class="fab fa-instagram"></i>
     </a>
-    <a href="https://youtube.com/@atemarchive" target="_blank" aria-label="YouTube">
+    <a href="https://www.youtube.com/@atemarchive" target="_blank" aria-label="YouTube">
       <i class="fab fa-youtube"></i>
+    </a>
+    <a href="https://elasticstage.com/atemarchive" target="_blank" aria-label="Elasticstage">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGX2JYVzG4YOcLsV_alNZS4FWLzfAauldYcA&s" alt="Elasticstage Logo">
+    </a>
+    <a href="https://open.spotify.com/artist/7uX8o51wynEbVf8EnewF5c?si=GLZYuFNmS9qYY4eF7UO8EA" target="_blank" aria-label="Spotify">
+      <i class="fab fa-spotify"></i>
     </a>
   </div>
 </body>
