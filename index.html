@@ -43,16 +43,31 @@
       border-bottom: 2px solid #1db954;
     }
 
+    /* Fade-in animation for tab content */
+    @keyframes fadeInContent {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     .tab-content {
       display: none;
       text-align: center;
       padding-top: 120px;
       padding-left: 20px;
       padding-right: 20px;
+      opacity: 0;
+      transition: opacity 0.5s ease;
     }
 
     .tab-content.active {
       display: block;
+      animation: fadeInContent 0.5s ease forwards;
     }
 
     h1 {
@@ -60,7 +75,6 @@
       margin-bottom: 40px;
     }
 
-    /* Linktree-style layout */
     .linktree-links {
       display: flex;
       flex-direction: column;
@@ -84,7 +98,6 @@
       transition: all 0.3s ease;
     }
 
-    /* Burn hover effect */
     @keyframes burnPulse {
       0%, 100% {
         box-shadow:
@@ -105,21 +118,12 @@
       animation: burnPulse 1.2s infinite;
     }
 
-    /* Make all icons and images the same size and aligned */
     .linktree-links i,
     .linktree-links img,
     .linktree-links svg {
       width: 30px;
       height: 30px;
       flex-shrink: 0;
-      line-height: 30px;
-      vertical-align: middle;
-      display: inline-block;
-    }
-
-    .linktree-links i {
-      font-size: 30px;
-      line-height: 30px;
     }
 
     .linktree-links img {
@@ -142,10 +146,18 @@
       border-radius: 10px;
       padding: 15px;
       box-shadow: 0 0 10px rgba(0,0,0,0.7);
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, opacity 0.3s ease;
       display: flex;
       flex-direction: column;
       align-items: center;
+      opacity: 1;
+    }
+
+    .release-item.hide {
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.95);
+      transition: opacity 0.3s ease, transform 0.3s ease;
     }
 
     .release-item:hover {
@@ -188,18 +200,49 @@
       margin-top: 10px;
       border-radius: 6px;
     }
+
+    #searchInput {
+      max-width: 300px;
+      width: 100%;
+      padding: 10px 15px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+      margin: 0 auto 30px;
+      display: block;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      outline: none;
+      box-shadow: 0 0 8px #1db954;
+      transition: background-color 0.3s ease;
+      position: relative;
+    }
+
+    #searchInput::placeholder {
+      color: #ccc;
+    }
+
+    #searchInput:focus {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Loading spinner inside the input */
+    #searchInput.loading {
+      background-image: url('data:image/svg+xml;utf8,<svg fill="none" stroke="%23fff" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke-opacity="0.25"/><path d="M22 12a10 10 0 0 1-10 10" stroke-opacity="1"><animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur="1s" repeatCount="indefinite"/></path></svg>');
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      background-size: 20px 20px;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Navigation Tabs -->
   <nav>
     <a class="tab-link active" data-tab="home">Home</a>
     <a class="tab-link" data-tab="music">Music</a>
     <a class="tab-link" data-tab="video">Video</a>
   </nav>
 
-  <!-- Home Tab -->
   <div id="home" class="tab-content active">
     <h1>Atem Archive</h1>
     <div class="linktree-links">
@@ -223,12 +266,13 @@
     </div>
   </div>
 
-  <!-- Music Tab -->
   <div id="music" class="tab-content">
     <h1>Music</h1>
+
+    <input type="text" id="searchInput" placeholder="Search music by title or artist..." />
+
     <div class="releases-grid">
 
-      <!-- Ancient Spirits Release with audio -->
       <div class="release-item">
         <img src="https://i.imgur.com/7Rn428S.jpeg" alt="Lost in the Rain - Ancient Spirits" class="release-image" />
         <p class="release-title">Ancient Spirits</p>
@@ -236,7 +280,6 @@
         <audio controls src="https://www.dropbox.com/scl/fi/106o95ojvzt9wzwzzl6nk/1.lost-in-the-rain-ancient-spirits.mp3?rlkey=ghnadu2hvhcv25mhi1a40auy6&st=ogsl6a7u&dl=1"></audio>
       </div>
 
-      <!-- W.W Release with audio -->
       <div class="release-item">
         <img src="https://i.imgur.com/om40ULJ.jpeg" alt="Lost in the Rain - W.W" class="release-image" />
         <p class="release-title">W.W</p>
@@ -244,7 +287,6 @@
         <audio controls src="https://www.dropbox.com/scl/fi/c82fmutxbjxw070577uvb/1.lost-in-the-rain-w.w.mp3?rlkey=y8ratgcjwqt2y7jpmgzuro8wp&st=1tk6021i&dl=1"></audio>
       </div>
 
-      <!-- Atem Release with audio -->
       <div class="release-item">
         <img src="https://i.imgur.com/GaJUXjJ.jpeg" alt="Atem - Atem" class="release-image" />
         <p class="release-title">Atem</p>
@@ -255,13 +297,11 @@
     </div>
   </div>
 
-  <!-- Video Tab -->
   <div id="video" class="tab-content">
     <h1>Video</h1>
     <p>Coming soon...</p>
   </div>
 
-  <!-- JavaScript for Tab Switching and Audio Control -->
   <script>
     const tabs = document.querySelectorAll('.tab-link');
     const contents = document.querySelectorAll('.tab-content');
@@ -269,26 +309,59 @@
 
     tabs.forEach(tab => {
       tab.addEventListener('click', () => {
-        // Switch active tab link
         tabs.forEach(t => t.classList.remove('active'));
         tab.classList.add('active');
 
-        // Show corresponding content
-        contents.forEach(c => c.classList.remove('active'));
-        document.getElementById(tab.dataset.tab).classList.add('active');
+        contents.forEach(c => {
+          c.classList.remove('active');
+          // Reset opacity to 0 after hiding so animation triggers on next show
+          c.style.opacity = 0;
+        });
 
-        // Pause all audio when switching tabs
+        const activeContent = document.getElementById(tab.dataset.tab);
+        activeContent.classList.add('active');
+        activeContent.style.opacity = 1;
+
         audios.forEach(audio => audio.pause());
       });
     });
 
-    // Pause other audios when one plays
     audios.forEach(audio => {
       audio.addEventListener('play', () => {
         audios.forEach(other => {
           if (other !== audio) other.pause();
         });
       });
+    });
+
+    // Search filter with fade transition and loading spinner
+    const searchInput = document.getElementById('searchInput');
+    const releaseItems = document.querySelectorAll('.release-item');
+    let debounceTimeout;
+
+    searchInput.addEventListener('input', () => {
+      clearTimeout(debounceTimeout);
+
+      // Show loading spinner on input
+      searchInput.classList.add('loading');
+
+      debounceTimeout = setTimeout(() => {
+        const filter = searchInput.value.toLowerCase();
+
+        releaseItems.forEach(item => {
+          const title = item.querySelector('.release-title').textContent.toLowerCase();
+          const artist = item.querySelector('.release-artist').textContent.toLowerCase();
+
+          if (title.includes(filter) || artist.includes(filter)) {
+            item.classList.remove('hide');
+          } else {
+            item.classList.add('hide');
+          }
+        });
+
+        // Remove loading spinner after filtering
+        searchInput.classList.remove('loading');
+      }, 250); // Debounce to simulate loading delay for smoothness
     });
   </script>
 
