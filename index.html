@@ -1,106 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Atem Archive Label</title>
-<style>
-  body {
-    background-color: black;
-    color: white;
-    font-family: Arial, sans-serif;
-    margin: 0; padding: 0;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Atem Archive Label</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+    }
 
-  header {
-    padding: 20px;
-    text-align: center;
-    font-size: 36px;
-    font-weight: bold;
-  }
+    header {
+      padding: 20px;
+      text-align: center;
+      font-size: 36px;
+      font-weight: bold;
+    }
 
-  nav {
-    display: flex;
-    justify-content: center;
-    background-color: #111;
-  }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #111;
+    }
 
-  nav button {
-    background: none;
-    border: none;
-    color: white;
-    padding: 15px 30px;
-    font-size: 18px;
-    cursor: pointer;
-    border-bottom: 3px solid transparent;
-    transition: border-color 0.3s;
-  }
+    nav button {
+      background: none;
+      border: none;
+      color: white;
+      padding: 15px 30px;
+      font-size: 18px;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: border-color 0.3s;
+    }
 
-  nav button.active,
-  nav button:hover {
-    border-bottom: 3px solid #1DB954; /* Spotify green accent */
-  }
+    nav button.active,
+    nav button:hover {
+      border-bottom: 3px solid #1DB954;
+    }
 
-  section {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 0 20px;
-    display: none;
-  }
+    section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      display: none;
+    }
 
-  section.active {
-    display: block;
-  }
+    section.active {
+      display: block;
+    }
 
-  /* Social icons */
-  .social-icons {
-    margin-top: 20px;
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-  }
+    .releases-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
 
-  .social-icons img {
-    filter: invert(100%);
-    width: 40px;
-    transition: transform 0.2s;
-  }
+    .release-item {
+      width: 180px;
+      text-align: center;
+    }
 
-  .social-icons img:hover {
-    transform: scale(1.2);
-  }
+    .release-item img {
+      width: 100%;
+      border-radius: 8px;
+    }
 
-  /* Releases grid */
-  .releases-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
-  }
+    .release-item h3 {
+      margin: 15px 0 10px;
+    }
 
-  .release-item {
-    width: 180px;
-    text-align: center;
-  }
+    .release-item a {
+      color: #1DB954;
+      text-decoration: none;
+    }
 
-  .release-item img {
-    width: 100%;
-    border-radius: 8px;
-  }
+    .release-item a:hover {
+      text-decoration: underline;
+    }
 
-  .release-item h3 {
-    margin: 15px 0 10px;
-  }
-
-  .release-item a {
-    color: #1DB954;
-    text-decoration: none;
-  }
-
-  .release-item a:hover {
-    text-decoration: underline;
-  }
-</style>
+    iframe {
+      border: none;
+      border-radius: 10px;
+      background: #222;
+    }
+  </style>
 </head>
 <body>
 
@@ -109,29 +96,12 @@
 <nav>
   <button class="tab-button active" data-tab="home">Home</button>
   <button class="tab-button" data-tab="releases">Releases</button>
+  <button class="tab-button" data-tab="radio">Radio</button>
 </nav>
 
 <section id="home" class="active">
   <h2>Welcome to Atem Archive</h2>
   <p>Your label page description goes here. Introduce your artists, music style, or news.</p>
-
-  <div class="social-icons">
-    <a href="https://www.instagram.com/atemarchive" target="_blank" title="Instagram">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" />
-    </a>
-    <a href="https://www.youtube.com/@atemarchive" target="_blank" title="YouTube">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Youtube%28amin%29.png" alt="YouTube" />
-    </a>
-    <a href="https://elasticstage.com/atemarchive" target="_blank" title="Elasticstage">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGX2JYVzG4YOcLsV_alNZS4FWLzfAauldYcA&s" alt="Elasticstage" />
-    </a>
-    <a href="https://open.spotify.com/artist/7uX8o51wynEbVf8EnewF5c?si=GLZYuFNmS9qYY4eF7UO8EA" target="_blank" title="Spotify">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" alt="Spotify" />
-    </a>
-    <a href="https://atemarchive.bandcamp.com" target="_blank" title="Bandcamp">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/22/Bandcamp-button-icon.png" alt="Bandcamp" />
-    </a>
-  </div>
 </section>
 
 <section id="releases">
@@ -147,8 +117,18 @@
       <h3>Album Title 2</h3>
       <a href="https://linktoalbum2" target="_blank">Listen / Buy</a>
     </div>
-    <!-- Add more releases here -->
+    <!-- Add more releases -->
   </div>
+</section>
+
+<section id="radio">
+  <h2>Radio</h2>
+  <p>Listen to our curated stream below:</p>
+  <!-- Replace src with your stream file or streaming link -->
+  <audio controls style="width: 100%;">
+    <source src="your-radio-stream.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
 </section>
 
 <script>
@@ -159,7 +139,6 @@
     button.addEventListener('click', () => {
       buttons.forEach(btn => btn.classList.remove('active'));
       sections.forEach(sec => sec.classList.remove('active'));
-
       button.classList.add('active');
       document.getElementById(button.dataset.tab).classList.add('active');
     });
