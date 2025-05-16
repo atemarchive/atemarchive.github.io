@@ -1,93 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Atem Archive Label</title>
-  <style>
-    body {
-      background-color: black;
-      color: white;
-      font-family: Arial, sans-serif;
-      margin: 0; padding: 0;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Atem Archive Label</title>
+<style>
+  body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0; padding: 0;
+  }
 
-    header {
-      padding: 20px;
-      text-align: center;
-      font-size: 36px;
-      font-weight: bold;
-    }
+  header {
+    padding: 20px;
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+  }
 
-    nav {
-      display: flex;
-      justify-content: center;
-      background-color: #111;
-    }
+  nav {
+    display: flex;
+    justify-content: center;
+    background-color: #111;
+  }
 
-    nav button {
-      background: none;
-      border: none;
-      color: white;
-      padding: 15px 30px;
-      font-size: 18px;
-      cursor: pointer;
-      border-bottom: 3px solid transparent;
-      transition: border-color 0.3s;
-    }
+  nav button {
+    background: none;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: border-color 0.3s;
+  }
 
-    nav button.active,
-    nav button:hover {
-      border-bottom: 3px solid #1DB954;
-    }
+  nav button.active,
+  nav button:hover {
+    border-bottom: 3px solid #1DB954;
+  }
 
-    section {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
-      display: none;
-    }
+  section {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: none;
+  }
 
-    section.active {
-      display: block;
-    }
+  section.active {
+    display: block;
+  }
 
-    .releases-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      justify-content: center;
-    }
+  .releases-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+  }
 
-    .release-item {
-      width: 180px;
-      text-align: center;
-    }
+  .release-item {
+    width: 180px;
+    text-align: center;
+  }
 
-    .release-item img {
-      width: 100%;
-      border-radius: 8px;
-    }
+  .release-item img {
+    width: 100%;
+    border-radius: 8px;
+  }
 
-    .release-item h3 {
-      margin: 15px 0 10px;
-    }
+  .release-item h3 {
+    margin: 15px 0 10px;
+  }
 
-    .release-item a {
-      color: #1DB954;
-      text-decoration: none;
-    }
+  .release-item a {
+    color: #1DB954;
+    text-decoration: none;
+  }
 
-    .release-item a:hover {
-      text-decoration: underline;
-    }
-
-    iframe {
-      border: none;
-      border-radius: 10px;
-      background: #222;
-    }
-  </style>
+  .release-item a:hover {
+    text-decoration: underline;
+  }
+</style>
 </head>
 <body>
 
@@ -117,18 +111,22 @@
       <h3>Album Title 2</h3>
       <a href="https://linktoalbum2" target="_blank">Listen / Buy</a>
     </div>
-    <!-- Add more releases -->
+    <!-- Add more releases as needed -->
   </div>
 </section>
 
 <section id="radio">
   <h2>Radio</h2>
-  <p>Listen to our curated stream below:</p>
-  <!-- Replace src with your stream file or streaming link -->
-  <audio controls style="width: 100%;">
-    <source src="your-radio-stream.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
+  <p>Listen to our curated radio stream:</p>
+  <!-- Example embedded radio player (replace the src with your actual stream link) -->
+  <iframe 
+    src="https://www.radiojar.com/embed/your-stream-id" 
+    width="100%" 
+    height="150" 
+    frameborder="0" 
+    allow="autoplay; encrypted-media" 
+    allowfullscreen>
+  </iframe>
 </section>
 
 <script>
@@ -139,6 +137,7 @@
     button.addEventListener('click', () => {
       buttons.forEach(btn => btn.classList.remove('active'));
       sections.forEach(sec => sec.classList.remove('active'));
+
       button.classList.add('active');
       document.getElementById(button.dataset.tab).classList.add('active');
     });
