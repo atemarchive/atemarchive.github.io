@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Atem Archive</title>
   <link
     rel="stylesheet"
@@ -14,6 +15,7 @@
       font-family: Arial, sans-serif;
       text-align: center;
       padding-top: 100px;
+      margin: 0;
     }
 
     h1 {
@@ -23,31 +25,76 @@
 
     .social-icons {
       margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
     }
 
     .social-icons a {
       color: white;
       font-size: 40px;
-      margin: 0 15px;
       text-decoration: none;
-      display: inline-block;
       transition: transform 0.3s, color 0.3s;
-      vertical-align: middle;
     }
 
     .social-icons a:hover {
       transform: scale(1.2);
-      color: #1db954; /* Spotify green for hover */
+      color: #1db954;
     }
 
     .social-icons img {
       width: 40px;
       height: 40px;
-      vertical-align: middle;
       border-radius: 8px;
       object-fit: cover;
-      transition: transform 0.3s;
+      transition: transform 0.3s, filter 0.3s;
       filter: invert(100%) brightness(150%) contrast(200%);
+    }
+
+    /* Bandcamp SVG Styling */
+    .bandcamp-circle {
+      fill: white;
+      transition: fill 0.3s;
+    }
+
+    .bandcamp-b {
+      fill: black;
+      transition: fill 0.3s;
+    }
+
+    .social-icons a:hover .bandcamp-circle {
+      fill: #1db954;
+    }
+
+    .social-icons a:hover .bandcamp-b {
+      fill: white;
+    }
+
+    /* Elasticstage Image Hover Effect */
+    .social-icons a:hover img {
+      filter: invert(100%) brightness(150%) contrast(200%) 
+              sepia(1) saturate(1000%) hue-rotate(60deg);
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 36px;
+        padding: 0 20px;
+      }
+      
+      .social-icons {
+        gap: 20px;
+      }
+      
+      .social-icons a {
+        font-size: 32px;
+      }
+      
+      .social-icons img {
+        width: 32px;
+        height: 32px;
+      }
     }
   </style>
 </head>
@@ -70,11 +117,10 @@
     <a href="https://open.spotify.com/artist/7uX8o51wynEbVf8EnewF5c?si=GLZYuFNmS9qYY4eF7UO8EA" target="_blank" aria-label="Spotify">
       <i class="fab fa-spotify"></i>
     </a>
-
-    <a href="https://atemarchive.bandcamp.com" target="_blank" aria-label="Bandcamp" style="display:inline-block; width:40px; height:40px; margin: 0 15px; vertical-align: middle;">
-      <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" style="width: 40px; height: 40px;">
-        <circle cx="12" cy="12" r="12"/>
-        <path fill="black" d="M10 16V8h4v8h-4z"/>
+    <a href="https://atemarchive.bandcamp.com" target="_blank" aria-label="Bandcamp">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 40px; height: 40px;">
+        <circle class="bandcamp-circle" cx="12" cy="12" r="12"/>
+        <path class="bandcamp-b" d="M10 16V8h4v8h-4z"/>
       </svg>
     </a>
   </div>
