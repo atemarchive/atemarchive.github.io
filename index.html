@@ -4,6 +4,16 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Atem Archive Label</title>
+
+<!-- Font Awesome for icons -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  integrity="sha512-p1CmXvy2lf7XXYdq6Gv6RnB/If2q+e7iQz66p6E+4QmiN+j+QDd0uJq5t8G0rRzrHQ8GQ0tg3BSrlYKaNPKwwQ=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+
 <style>
   body {
     background-color: black;
@@ -38,7 +48,7 @@
 
   nav button.active,
   nav button:hover {
-    border-bottom: 3px solid #1DB954; /* Spotify green accent */
+    border-bottom: 3px solid #1DB954;
   }
 
   section {
@@ -52,7 +62,6 @@
     display: block;
   }
 
-  /* Releases grid */
   .releases-grid {
     display: flex;
     flex-wrap: wrap;
@@ -82,6 +91,23 @@
   .release-item a:hover {
     text-decoration: underline;
   }
+
+  /* Social links in home */
+  #social-links {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 28px;
+  }
+
+  #social-links a {
+    color: white;
+    margin: 0 15px;
+    transition: color 0.3s;
+  }
+
+  #social-links a:hover {
+    color: #1DB954;
+  }
 </style>
 </head>
 <body>
@@ -91,11 +117,30 @@
 <nav>
   <button class="tab-button active" data-tab="home">Home</button>
   <button class="tab-button" data-tab="releases">Releases</button>
+  <button class="tab-button" data-tab="radio">Radio</button>
 </nav>
 
 <section id="home" class="active">
   <h2>Welcome to Atem Archive</h2>
   <p>Your label page description goes here. Introduce your artists, music style, or news.</p>
+
+  <div id="social-links">
+    <a href="https://www.instagram.com/atemarchive" target="_blank" aria-label="Instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://www.youtube.com/@atemarchive" target="_blank" aria-label="YouTube">
+      <i class="fab fa-youtube"></i>
+    </a>
+    <a href="https://elasticstage.com/atemarchive" target="_blank" aria-label="Elasticstage">
+      <i class="fas fa-broadcast-tower"></i>
+    </a>
+    <a href="https://open.spotify.com/artist/7uX8o51wynEbVf8EnewF5c?si=GLZYuFNmS9qYY4eF7UO8EA" target="_blank" aria-label="Spotify">
+      <i class="fab fa-spotify"></i>
+    </a>
+    <a href="https://atemarchive.bandcamp.com" target="_blank" aria-label="Bandcamp">
+      <i class="fab fa-bandcamp"></i>
+    </a>
+  </div>
 </section>
 
 <section id="releases">
@@ -111,8 +156,20 @@
       <h3>Album Title 2</h3>
       <a href="https://linktoalbum2" target="_blank">Listen / Buy</a>
     </div>
-    <!-- Add more releases as needed -->
   </div>
+</section>
+
+<section id="radio">
+  <h2>Radio</h2>
+  <p>Listen to our curated radio stream:</p>
+  <iframe 
+    src="https://www.radiojar.com/embed/your-stream-id" 
+    width="100%" 
+    height="150" 
+    frameborder="0" 
+    allow="autoplay; encrypted-media" 
+    allowfullscreen>
+  </iframe>
 </section>
 
 <script>
@@ -121,11 +178,9 @@
 
   buttons.forEach(button => {
     button.addEventListener('click', () => {
-      // Remove active classes
       buttons.forEach(btn => btn.classList.remove('active'));
       sections.forEach(sec => sec.classList.remove('active'));
 
-      // Add active class to clicked tab and corresponding section
       button.classList.add('active');
       document.getElementById(button.dataset.tab).classList.add('active');
     });
