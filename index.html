@@ -52,6 +52,24 @@
     display: block;
   }
 
+  /* Social icons */
+  .social-icons {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .social-icons img {
+    filter: invert(100%);
+    width: 40px;
+    transition: transform 0.2s;
+  }
+
+  .social-icons img:hover {
+    transform: scale(1.2);
+  }
+
   /* Releases grid */
   .releases-grid {
     display: flex;
@@ -96,6 +114,24 @@
 <section id="home" class="active">
   <h2>Welcome to Atem Archive</h2>
   <p>Your label page description goes here. Introduce your artists, music style, or news.</p>
+
+  <div class="social-icons">
+    <a href="https://www.instagram.com/atemarchive" target="_blank" title="Instagram">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" />
+    </a>
+    <a href="https://www.youtube.com/@atemarchive" target="_blank" title="YouTube">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Youtube%28amin%29.png" alt="YouTube" />
+    </a>
+    <a href="https://elasticstage.com/atemarchive" target="_blank" title="Elasticstage">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGX2JYVzG4YOcLsV_alNZS4FWLzfAauldYcA&s" alt="Elasticstage" />
+    </a>
+    <a href="https://open.spotify.com/artist/7uX8o51wynEbVf8EnewF5c?si=GLZYuFNmS9qYY4eF7UO8EA" target="_blank" title="Spotify">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" alt="Spotify" />
+    </a>
+    <a href="https://atemarchive.bandcamp.com" target="_blank" title="Bandcamp">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/22/Bandcamp-button-icon.png" alt="Bandcamp" />
+    </a>
+  </div>
 </section>
 
 <section id="releases">
@@ -111,7 +147,7 @@
       <h3>Album Title 2</h3>
       <a href="https://linktoalbum2" target="_blank">Listen / Buy</a>
     </div>
-    <!-- Add more releases as needed -->
+    <!-- Add more releases here -->
   </div>
 </section>
 
@@ -121,11 +157,9 @@
 
   buttons.forEach(button => {
     button.addEventListener('click', () => {
-      // Remove active classes
       buttons.forEach(btn => btn.classList.remove('active'));
       sections.forEach(sec => sec.classList.remove('active'));
 
-      // Add active class to clicked tab and corresponding section
       button.classList.add('active');
       document.getElementById(button.dataset.tab).classList.add('active');
     });
