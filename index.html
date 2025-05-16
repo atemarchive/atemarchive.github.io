@@ -140,14 +140,13 @@
       margin: 0;
       font-style: italic;
       color: #ddd;
-      margin-bottom: 10px;
     }
 
     audio {
       width: 100%;
       margin-top: 10px;
-      border-radius: 6px;
     }
+
   </style>
 </head>
 <body>
@@ -184,13 +183,15 @@
     <h1>Releases</h1>
     <div class="releases-grid">
 
+      <!-- Reversed order: Ancient Spirits -->
       <div class="release-item">
-        <img src="https://i.imgur.com/GaJUXjJ.jpeg" alt="Atem - Atem" class="release-image" />
-        <p class="release-title">Atem</p>
-        <p class="release-artist">atem</p>
-        <audio controls src="https://www.dropbox.com/scl/fi/atuylrmnm62vetl25js8q/1.a-t-e-m-atem.mp3?rlkey=zq6rdxxte6zchgmsfwctnpvcf&st=kf95kuob&dl=1"></audio>
+        <img src="https://i.imgur.com/7Rn428S.jpeg" alt="Lost in the Rain - Ancient Spirits" class="release-image" />
+        <p class="release-title">Ancient Spirits</p>
+        <p class="release-artist">lost in the rain</p>
+        <audio controls src="https://www.dropbox.com/scl/fi/106o95ojvzt9wzwzzl6nk/1.lost-in-the-rain-ancient-spirits.mp3?rlkey=ghnadu2hvhcv25mhi1a40auy6&st=ogsl6a7u&dl=1"></audio>
       </div>
 
+      <!-- W.W -->
       <div class="release-item">
         <img src="https://i.imgur.com/om40ULJ.jpeg" alt="Lost in the Rain - W.W" class="release-image" />
         <p class="release-title">W.W</p>
@@ -198,11 +199,12 @@
         <audio controls src="https://www.dropbox.com/scl/fi/c82fmutxbjxw070577uvb/1.lost-in-the-rain-w.w.mp3?rlkey=y8ratgcjwqt2y7jpmgzuro8wp&st=1tk6021i&dl=1"></audio>
       </div>
 
+      <!-- Atem -->
       <div class="release-item">
-        <img src="https://i.imgur.com/7Rn428S.jpeg" alt="Lost in the Rain - Ancient Spirits" class="release-image" />
-        <p class="release-title">Ancient Spirits</p>
-        <p class="release-artist">lost in the rain</p>
-        <audio controls src="https://www.dropbox.com/scl/fi/106o95ojvzt9wzwzzl6nk/1.lost-in-the-rain-ancient-spirits.mp3?rlkey=ghnadu2hvhcv25mhi1a40auy6&st=ogsl6a7u&dl=1"></audio>
+        <img src="https://i.imgur.com/GaJUXjJ.jpeg" alt="Atem - Atem" class="release-image" />
+        <p class="release-title">Atem</p>
+        <p class="release-artist">atem</p>
+        <audio controls src="https://www.dropbox.com/scl/fi/atuylrmnm62vetl25js8q/1.a-t-e-m-atem.mp3?rlkey=zq6rdxxte6zchgmsfwctnpvcf&st=kf95kuob&dl=1"></audio>
       </div>
 
     </div>
@@ -214,28 +216,28 @@
     <p>Coming soon...</p>
   </div>
 
-  <!-- JavaScript for Tab Switching and Audio Control -->
+  <!-- JavaScript for Tabs and Audio Control -->
   <script>
-    // Tab Switching
-    const tabs = document.querySelectorAll('.tab-link');
-    const contents = document.querySelectorAll('.tab-content');
+    const links = document.querySelectorAll('.tab-link');
+    const tabs = document.querySelectorAll('.tab-content');
+    const audios = document.querySelectorAll('audio');
 
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        links.forEach(l => l.classList.remove('active'));
         tabs.forEach(t => t.classList.remove('active'));
-        contents.forEach(c => c.classList.remove('active'));
 
-        tab.classList.add('active');
-        document.getElementById(tab.dataset.tab).classList.add('active');
+        link.classList.add('active');
+        document.getElementById(link.dataset.tab).classList.add('active');
       });
     });
 
-    // Pause other audios when one plays
-    const audios = document.querySelectorAll('audio');
     audios.forEach(audio => {
       audio.addEventListener('play', () => {
         audios.forEach(other => {
-          if (other !== audio) other.pause();
+          if (other !== audio) {
+            other.pause();
+          }
         });
       });
     });
